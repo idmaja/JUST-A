@@ -104,7 +104,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International Public License.
 
 Feel free to replace `your-username` and `your-repo-name` with your actual GitHub username and repository name. This `README.md` provides a clear and concise overview of your project, its prerequisites, setup instructions, and resources for further learning.
 
