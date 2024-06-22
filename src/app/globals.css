@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -ms-transition: 0.3s ease all;
+  -o-transition: 0.3s ease all;
+}
+
+img:hover {
+  scale: 102%;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.custom-loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 16px solid #ffc639;
+  border-right-color: #393e46;
+  position: relative;
+  animation: s4 2s infinite linear;
+}
+.custom-loader:before,
+.custom-loader:after {
+  content: "";
+  position: absolute;
+  inset:-16px;
+  border-radius: 50%;
+  border:inherit;
+  animation:inherit;
+  animation-duration: 4s;
+}
+.custom-loader:after {
+  animation-duration: 8s;
+}
+
+@keyframes s4 {
+  100% {transform: rotate(1turn)}
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #49416D;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #E7C672;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2D2944;
+}
