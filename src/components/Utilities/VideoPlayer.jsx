@@ -30,7 +30,7 @@ const VideoPlayer = ({ youtubeId }) => {
             <div className="fixed bottom-2 right-2">
                 <button 
                     onClick={handleVideoPlayer}
-                    className="float-right px-3 mb-1 rounded text-color-primary bg-color-red">
+                    className="float-right px-3 mb-1 rounded-sm text-color-primary bg-color-red">
                     {/* <XCircle size={32} /> */}
                     X
                 </button>
