@@ -37,4 +37,5 @@ model User {
   email         String  @unique
   username      String?
   image         String?
+  role          String @default("user")
 }
