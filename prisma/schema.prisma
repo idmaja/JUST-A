@@ -36,6 +36,7 @@ model User {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   email         String  @unique
   username      String?
+  password      String?
   image         String?
   role          String @default("user")
 }
