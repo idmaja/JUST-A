@@ -59,6 +59,76 @@ img:hover {
   100% {transform: rotate(1turn)}
 }
 
+/* .custom-loader {
+  width: 120px;
+  height: 22px;
+  border-radius: 20px;
+  color: #ffc639;
+  border: 2px solid;
+  position: relative;
+}
+.custom-loader::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  inset: 0 100% 0 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: l6 2s infinite;
+}
+@keyframes l6 {
+    100% {inset:0}
+} */
+
+
+/* HTML: <div class="loader"></div> */
+/* .custom-loader {
+  width: 50px;
+  aspect-ratio: 1;
+  box-shadow: 0 0 0 3px ##ffc639 inset;
+  border-radius: 50%;
+  position: relative;
+  animation: l11 7s infinite;
+}
+.custom-loader:before,
+.custom-loader:after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 3px);
+  left: calc(50% - 12.5px);
+  box-shadow: inherit;
+  width: 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform-origin: 50% -28px;
+  animation: l11 1.5s infinite;
+}
+.custom-loader:after {
+  animation-delay: -0.75s;
+}
+@keyframes l11 {
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+/* HTML: <div class="loader"></div> */
+/* .custom-loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#ffa516 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,#ffa516);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13{ 
+  100%{transform: rotate(1turn)}
+} */
+
+
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

@@ -25,7 +25,7 @@ const InputSearch = () => {
     return (
         <div className="relative w-full max-w-md">
             <input 
-                placeholder="Cari Anime" 
+                placeholder="Find Anime.." 
                 className="w-full p-2 rounded-3xl"
                 ref={searchRef}
                 onKeyDown={handleSearch}

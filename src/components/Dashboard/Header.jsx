@@ -11,17 +11,16 @@ const Header = ({ title }) => {
     }
 
     return (
-        <div className="flex items-center mb-4">
-            <button className="text-color-primary" onClick={handleBack}>
-                <ArrowFatLeft size={32} className="transition-all hover:text-color-secondary"/>
-            </button>
-            <div className="flex-grow"></div>
-            <h3 className="text-3xl font-bold underline text-color-secondary underline-offset-4">
+        <div className="relative flex items-center mb-4">
+            <div className="absolute left-0">
+                <button className="text-color-primary" onClick={handleBack}>
+                    <ArrowFatLeft size={50} className="transition-all hover:text-color-secondary" weight="fill" />
+                </button>
+            </div>
+            <h3 className="mx-auto text-3xl font-bold underline text-color-secondary underline-offset-4">
                 {title}
             </h3>
-            <div className="flex-grow"></div>
         </div>
-
     )
 }
 

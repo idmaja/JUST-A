@@ -11,7 +11,9 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.1.5",
     "@prisma/client": "^5.15.0",
+    "animelist": "file:",
     "bcryptjs": "^2.4.3",
+    "framer-motion": "^11.8.0",
     "next": "^14.2.13",
     "next-auth": "^4.24.7",
     "react": "^18",

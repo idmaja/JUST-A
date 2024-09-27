@@ -3,7 +3,6 @@ import { SignIn, SignOut, User } from "@phosphor-icons/react/dist/ssr"
 import Image from "next/image"
 import Link from "next/link"
 
-
 const UserActionButton = async() => {
     const user = await authUserSession()
 
@@ -14,6 +13,7 @@ const UserActionButton = async() => {
                         <SignIn size={32} className=" text-color-primary" alt="Sign in" weight="bold"/>
                         // <><h5 className="text-color-primary w-24 text-center text-lg transition-all justify-center ">Sign In</h5></>
     const actionURL = user ? "/api/auth/signout" : "/api/auth/signin"
+
     return (
         <div className="flex justify-between gap-2">
             {
