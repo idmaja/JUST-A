@@ -5,7 +5,7 @@
     height: 500px; /* Adjusted height */
     margin: 0 auto; /* Center the slider */
     border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    box-shadow: inset 200px 200px 500px rgba(0, 0, 0, 0.7); /* Subtle shadow */
   }
   
   .anime-slider-inner {
@@ -38,7 +38,7 @@
     bottom: 20px;
     left: 20px;
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.9);
   }
   
   .anime-info h2 {
