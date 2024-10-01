@@ -14,11 +14,14 @@ const Page = async({ params: { id } }) => {
     const collection = await prisma.collection.findFirst({
         where: { user_email: user?.email, anime_mal_id: id }
     })
-    const userDb = await prisma.user.findUnique({
-        where: {email: user?.email}
-    })
-    // console.log("username: ", userDb.username )
-
+    
+    let userDb = null;
+    if (user) {
+        userDb = await prisma.user.findUnique({
+            where: { email: user?.email }
+        })
+    }
+    
     return (
         <div className="p-8 text-white bg-dark-900">
             <div className="flex items-center">
@@ -69,7 +72,9 @@ const Page = async({ params: { id } }) => {
                     <h1 className="text-2xl font-bold text-color-primary">Comments</h1>
                 </div>
                 <div className="mb-4">
-                    {user && <CommentInput anime_mal_id={id} user_email={user?.email} username={userDb?.username} anime_title={anime.data.title}/>}
+                    {user &&
+                        <CommentInput anime_mal_id={id} user_email={user?.email} username={userDb?.username} anime_title={anime.data.title}/>
+                    }
                 </div>
                 <CommentBox anime_mal_id={id}/>
             </div>
