@@ -26,7 +26,8 @@ const ProfileForm = ({ user }) => {
     
     if (result.isUpdated) {
       setMessage("Profile updated successfully!");
-      router.refresh(); // Refresh the page data
+      // router.refresh(); // Refresh the page data
+      router.back()
     } else {
       setMessage("Failed to update profile.");
     }
@@ -48,7 +49,7 @@ const ProfileForm = ({ user }) => {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
                 required
-                whileFocus={{ scale: 1.05 }}
+                whileFocus={{ scale: 1.03 }}
                 className="block w-full p-3 mt-1 text-lg font-bold border border-gray-300 rounded-lg text-color-dark focus:ring-blue-500 focus:border-blue-500"
               />
             </div>

@@ -9,11 +9,8 @@ const Navbar = () => {
     <header className="bg-color-accent">
       <div className="flex flex-col justify-between gap-2 p-4 md:items-center md:flex-row">
         <Link href="/" className="text-2xl font-bold">
-          <div className="flex items-center">
-            {/* JUST-A */}
-            <Image src="/just-a-logo.svg" alt="..." width={500} height={500} className="object-cover w-full h-28 rounded"/>
-            {/* <ArrowsInCardinal size={60} className="text-color-primary"/> */}
-            {/* <span className="font-bold text-color-primary">JUST-A</span> */}
+          <div className="flex items-center justify-center md:justify-start">
+            <Image src="/just-a-logo.svg" alt="..." width={500} height={500} className="object-cover w-32 h-16 rounded sm:w-40 sm:h-20 md:w-64 md:h-28"/>
           </div>
         </Link>
         <div className="flex items-center gap-2">

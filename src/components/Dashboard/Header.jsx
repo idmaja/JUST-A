@@ -11,10 +11,10 @@ const Header = ({ title }) => {
     }
 
     return (
-        <div className="relative flex items-center mb-4">
+        <div className="relative flex items-center mt-10 mb-10">
             <div className="absolute left-0">
                 <button className="text-color-primary" onClick={handleBack}>
-                    <ArrowFatLeft size={50} className="transition-all hover:text-color-secondary" weight="fill" />
+                    <ArrowFatLeft size={50} className="transition-all hover:text-color-secondary sm:w-28 sm:h-16" weight="fill" />
                 </button>
             </div>
             <h3 className="mx-auto text-3xl font-bold underline text-color-secondary underline-offset-4">

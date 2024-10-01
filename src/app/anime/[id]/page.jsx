@@ -28,15 +28,15 @@ const Page = async({ params: { id } }) => {
                 <Play size={28} weight="fill" className="mr-2 text-color-secondary"/>
                 <h1 className="text-2xl font-bold text-color-primary">Overview</h1>
             </div>
-            <div className="flex gap-6">
+            <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
                 <Image
                     src={anime.data.images.webp.image_url}
                     alt={anime.data.title}
                     width={350}
                     height={350}
-                    className="w-64 pt-3 rounded h-96"
+                    className="w-64 pt-3 mx-auto rounded h-96"
                 />  
-                <div className="text-color-primary">
+                <div className="text-center text-color-primary md:text-left">
                     <h3 className="text-4xl font-bold">{anime.data.title} | {anime.data.title_japanese}</h3>
                     {/* <div className="mt-2 font-light">R - 17+ (violence & profanity)</div> */}
                     {anime.data.synopsis}
@@ -45,20 +45,13 @@ const Page = async({ params: { id } }) => {
                         <p><strong>Release:</strong> {anime.data.season} {anime.data.year}</p>
                         <p><strong>Status:</strong> {anime.data.status}</p>
                         <p><strong>Genre:</strong> {anime.data.genres.map(genre => genre.name).join(', ')}</p>
-                        <p className="flex items-center">
+                        <p className="flex items-center justify-center md:justify-start">
                             <strong>Score:</strong>
                             <Star size={10} weight="fill" color="red" className="ml-2 mr-1" />
                             {anime.data.score}
                         </p>
                         <p><strong>Duration:</strong> {anime.data.duration}</p>
                     </div>
-                    {/* <div className="mt-4">
-                        {collection && user &&
-                            <button className="px-4 py-2 mt-4 text-white bg-gray-700 rounded-lg">
-                                Remove From Collection
-                            </button>
-                        }
-                    </div> */}
                 </div>
             </div>
             <div className="">
