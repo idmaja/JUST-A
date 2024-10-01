@@ -3,6 +3,7 @@
 import { MagnifyingGlass } from "@phosphor-icons/react"
 import { useRouter } from "next/navigation"
 import { useRef } from "react"
+import { motion } from "framer-motion";
 
 const InputSearch = () => {
     const searchRef = useRef()
@@ -24,11 +25,12 @@ const InputSearch = () => {
 
     return (
         <div className="relative w-full max-w-md">
-            <input 
+            <motion.input 
                 placeholder="Find Anime.." 
                 className="w-full p-2 rounded-3xl"
                 ref={searchRef}
                 onKeyDown={handleSearch}
+                whileFocus={{ scale: 1.025 }}
             />
             <button className="absolute top-2 end-2" onClick={handleSearch}>
                 <MagnifyingGlass size={24} />
