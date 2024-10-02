@@ -48,17 +48,17 @@ const AnimeSlider = ({ animeList }) => {
               src={anime.images.jpg.large_image_url}
               alt={anime.title}
               className="anime-image"
-              width={2000}
-              height={2000}
+              width={5000}
+              height={5000}
             />
-            <div className="anime-info">
+            <div className="anime-info md:text-sm sm:text-xs">
               <h2>{anime.title}</h2>
               <div className="anime-rating">⭐ {anime.score}</div>
               <p className='mb-5'>{anime.genres.map((genre) => genre.name).join(', ')}</p>
               <Link
                 href={`/anime/${anime.mal_id}`}
-                className="transition-all py-2.5 px-5 me-2 mb-5 text-sm font-medium text-color-blue focus:outline-none bg-white 
-                  rounded-full border border-color-secondary hover:bg-color-yellow hover:text-color-primary focus:z-10 focus:ring-4"
+                className="anime-info-button transition-all py-2.5 px-5 me-2 mb-5 sm:text-sm md:text-sm font-medium text-color-primary
+                  rounded-full border border-color-secondary bg-color-secondary hover:bg-color-yellow hover:text-color-primary"
               >
                 Read More
               </Link>
@@ -79,8 +79,8 @@ const AnimeSlider = ({ animeList }) => {
       </div>
 
       {/* Navigation buttons */}
-      <button className="prev" onClick={handlePrevClick}>❮</button>
-      <button className="next" onClick={handleNextClick}>❯</button>
+      <button className="transition-all prev" onClick={handlePrevClick}>❮</button>
+      <button className="transition-all next" onClick={handleNextClick}>❯</button>
     </div>
   );
 };

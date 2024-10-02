@@ -33,7 +33,7 @@
     border-radius: 15px; /* Ensure images are rounded */
   }
   
-  .anime-info {
+  .anime-info:not(.anime-info-button) {
     position: absolute;
     bottom: 20px;
     left: 20px;
