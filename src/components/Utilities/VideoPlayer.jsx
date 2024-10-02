@@ -1,6 +1,6 @@
 "use client" // agar berjalan di sisi client tidak dalam sisi server
 
-import { XCircle } from "@phosphor-icons/react"
+import { Play, XCircle } from "@phosphor-icons/react"
 import { useState } from "react"
 import YouTube from "react-youtube"
 
@@ -48,9 +48,10 @@ const VideoPlayer = ({ youtubeId }) => {
         return (
             <button 
                 onClick={handleVideoPlayer}
-                className="fixed w-40 h-10 text-lg transition-all rounded shadow-xl animate-bounce bottom-5 right-5 bg-color-primary text-color-dark hover:bg-color-yellow outline outline-2 outline-offset-2 outline-color-secondary"
+                className="fixed flex items-center h-10 text-xl transition-all rounded shadow-xl md:text-2xl md:h-12 md:w-40 w-28 animate-bounce bottom-5 right-5 bg-color-primary text-color-dark hover:bg-color-yellow outline outline-2 outline-offset-2 outline-color-secondary"
             >
-                Watch Trailer!
+                <Play size={20} weight="fill" className="ml-3 mr-1 md:mr-1 md:ml-9 text-color-secondary" />
+                Trailer
             </button>
         )
     }
