@@ -14,8 +14,9 @@ const Page = async() => {
     return (
         <div className="flex items-center justify-center pt-16">
             <div className="flex flex-col items-center justify-center p-8 bg-white rounded shadow-lg text-color-primary">
-                <h5 className="pb-6 text-2xl font-bold">Welcome, {userDb?.username}!</h5>
-                <Image src={user?.image} alt="..." width={150} height={150} className="rounded-full" />
+                <h5 className="pb-1 text-2xl font-bold">Welcome, {userDb?.username}!</h5>
+                <h6 className="mb-6 text-sm text-color-secondary">{userDb?.email}</h6>
+                <Image src={user?.image} alt="..." width={150} height={150} className="mb-3 rounded-full" />
                 <div className="flex flex-wrap gap-4 py-4">
                     <Link 
                         href="/users/dashboard/collection"

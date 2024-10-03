@@ -72,13 +72,13 @@ const CollectionButton = ({ anime_mal_id, user_email, anime_image, anime_title }
   return (
     <>
       {isInCollection ? (
-        <button onClick={handleDelete} className="w-64 px-2 py-1 transition-all bg-transparent border border-gray-900 rounded hover:bg-color-secondary text-color-primary hover:text-color-primary focus:outline-none ring-color-secondary rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+        <button onClick={handleDelete} className="w-full px-2 py-1 transition-all bg-transparent border border-gray-900 rounded md:w-64 hover:bg-color-secondary text-color-primary hover:text-color-primary focus:outline-none ring-color-secondary rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
           <div className='flex items-center justify-center'>
             <Trash size={16} weight="fill" className='mr-1'/>REMOVE FROM COLLECTION
           </div>
         </button>
       ) : (
-        <button onClick={handleCollection} className="w-64 px-2 py-1 transition-all bg-transparent border border-gray-900 rounded hover:bg-color-secondary text-color-primary hover:text-color-primary focus:outline-none ring-color-secondary rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
+        <button onClick={handleCollection} className="w-full px-2 py-1 transition-all bg-transparent border border-gray-900 rounded md:w-64 hover:bg-color-secondary text-color-primary hover:text-color-primary focus:outline-none ring-color-secondary rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white">
           <div className='flex items-center justify-center'>
             <Archive size={16} weight="fill" className='mr-1'/>ADD TO COLLECTION     
           </div>
