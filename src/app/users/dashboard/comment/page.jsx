@@ -9,24 +9,32 @@ const page = async() => {
     const user = await authUserSession()
     const comments = await prisma.comment.findMany({where: {user_email: user.email}})
     return (
-        <section className="w-full px-4 mt-4">
+        <section className="w-full px-4 pt-10 mt-4 md:pt-24">
             <Header title={"COMMENTS"}/>
-            <div className="grid grid-cols-1 gap-4 py-2">
+            <div className="grid grid-cols-1 gap-4 py-0">
                 {comments.map(comment => {
                     return (
-                        <Link href={`/anime/${comment.anime_mal_id}`} key={comment.id} className="p-4 rounded bg-color-primary text-color-dark outline-color-hover outline-1 outline-double"> 
-                            <div className="relative flex items-center">
+                        <div 
+                            key={comment.id} 
+                            className="relative w-auto p-4 rounded md:mx-5 bg-color-primary text-color-dark outline-color-hover outline-1 outline-double"
+                        >
+                            {/* Bagian Link */}
+                            <Link href={`/anime/${comment.anime_mal_id}`} className="block">
                                 <div className="ml-2">
                                     <p className="text-sm">{comment.anime_title}</p>
                                     <p className="italic">{comment.comment}</p>
                                 </div>
-                                <div className="absolute ml-2 right-2">
-                                    {user && <CommentDelete commentId={comment.id} />}
+                            </Link>
+                            
+                            {/* Tombol Delete */}
+                            {user && (
+                                <div className="absolute top-5 right-5">
+                                    <CommentDelete commentId={comment.id} />
                                 </div>
-                            </div>
-                        </Link>
+                            )}
+                        </div>
                     )
-                    })}
+                })}
             </div>
         </section>
     )   

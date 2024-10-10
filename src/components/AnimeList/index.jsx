@@ -2,12 +2,18 @@ import { Star } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 
-const AnimeList = ({ api, titleValue, verticalList, airing }) => {
+const AnimeList = ({ api, titleValue, verticalList, airing, allowedIds}) => {
+  const allowedAnime = allowedIds;
+  // console.log(allowedAnime)
+  
   const gridClass = airing ? "grid grid-cols-2 gap-4 px-4" : verticalList ? "flex flex-col gap-4" : "grid grid-cols-2 gap-4 px-4 md:grid-cols-8 sm:grid-cols-3";
 
   return (
     <div className={gridClass}>
-      {api.data?.map((anime, index) => {
+      {api.data
+        ?.filter(anime => !allowedAnime || allowedAnime.includes(anime.mal_id))
+        .slice(0, 16)
+        .map((anime, index) => {
         return (
           <Link
             href={`/anime/${anime.mal_id}`}

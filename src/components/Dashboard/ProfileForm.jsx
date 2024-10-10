@@ -43,10 +43,10 @@ const ProfileForm = ({ user }) => {
   };
 
   return (
-    <section className="w-full px-4 mt-4">
+    <section className="w-full px-4 pt-10 mt-4 md:pt-24">
       <Header title={"UPDATE USERNAME"} />
-      <div className="flex items-start justify-center min-h-screen bg-gray-100">
-        <div className="w-full max-w-md p-8 mt-10 bg-white rounded-lg shadow-lg">
+      <div className="flex items-start justify-center min-h-screen">
+        <div className="w-full max-w-md p-8 mt-10 rounded-lg shadow-lg bg-slate-900">
           <form onSubmit={handleUpdate} className="space-y-6 text-color-primary">
             <div>
               <motion.input
@@ -61,7 +61,8 @@ const ProfileForm = ({ user }) => {
             </div>
             <button
               type="submit"
-              className="w-full px-4 py-2 transition-colors rounded bg-color-secondary hover:bg-color-primary hover:text-color-dark"
+              className="w-full transition-all py-2.5 px-5 me-2 mb-2 text-sm font-medium text-color-blue focus:outline-none bg-color-hover
+                          rounded-lg hover:bg-color-yellow hover:text-color-primary"
             >
               Update
             </button>
@@ -80,13 +81,13 @@ const ProfileForm = ({ user }) => {
             transition={{ duration: 0.5 }}
           >
             <motion.div
-              className="max-w-sm p-8 mx-auto bg-white rounded-lg shadow-lg md:mt-24 mt-36"
+              className="max-w-sm p-8 mx-auto mt-16 bg-white rounded-lg shadow-lg md:mt-20"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="mb-4 text-xl font-semibold text-center text-color-primary">
+              <h2 className="mb-4 text-xl font-semibold text-center text-gray-500">
                 {message}
               </h2>
               <p className="text-center text-color-secondary">

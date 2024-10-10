@@ -9,9 +9,9 @@ const Page = async() => {
     const collection = await prisma.collection.findMany({ where: {user_email: user.email} })
 
     return (
-        <section className="w-full px-4 mt-4">
+        <section className="w-full px-4 pt-10 mt-4 md:pt-24">
             <Header title={"COLLECTION"}/>
-            <div className="grid gap-4 sm:grid-cols-4 lg:grid-cols-6">
+            <div className="grid gap-4 md:pl-7 sm:grid-cols-4 lg:grid-cols-6">
                 {collection.map((collect, index) => {
                     return (
                         <Link key={index} href={`/anime/${collect.anime_mal_id}`} className="relative transition-all cursor-pointer text-color-primary hover:text-color-secondary">

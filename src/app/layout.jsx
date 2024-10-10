@@ -1,8 +1,11 @@
-import { Gabarito } from "next/font/google";
+import { Gabarito, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 
-const gabarito = Gabarito({ subsets: ["latin"] });
+const roboto = Roboto({ 
+  subsets: ["latin"],
+  weight: ["400", "500", "700"] 
+});
 
 export const metadata = {
   title: "JUST-A",
@@ -12,9 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${gabarito.className} bg-color-dark scroll-smooth`} suppressHydrationWarning={true}>
+      <body className={`${roboto.className} bg-color-dark scroll-smooth`} suppressHydrationWarning={true}>
         <Navbar />
-        {children}
+        <div className="bg-gradient-to-t from-color-dark via-50% to-black">
+          {children}
+        </div>
       </body>
     </html>
   );

@@ -15,10 +15,17 @@ export const authOption = {
         })
     ],
     secret: process.env.NEXTAUTH_SECRET,
+    pages: {
+        signIn: '/auth/signin', 
+    },
     callbacks: {
         async signIn({ user, account, profile }) {
             const email = user.email;
             const username = profile.name;
+            const image = user.image || profile.picture;
+            
+            console.log('user:',user)
+            console.log('profile',profile)
 
             // Save user to database if doesn't exist
             const existingUser = await prisma.user.findUnique({ where: { email } });
@@ -26,7 +33,8 @@ export const authOption = {
                 await prisma.user.create({
                     data: {
                         email,
-                        username
+                        username,
+                        image
                     }
                 });
             }

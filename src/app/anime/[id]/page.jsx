@@ -23,7 +23,7 @@ const Page = async({ params: { id } }) => {
     }
     
     return (
-        <div className="p-8 text-white bg-dark-900">
+        <div className="p-8 pt-24 text-white md:pt-28">
             <div className="flex items-center">
                 <Play size={28} weight="fill" className="mr-2 text-color-secondary"/>
                 <h1 className="text-2xl font-bold text-color-primary">Overview</h1>

@@ -1,18 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import InputSearch from "./InputSearch";
-import { ArrowsInCardinal } from "@phosphor-icons/react/dist/ssr";
 import UserActionButton from "./UserActionButton";
 
 const Navbar = () => {
   return (
-    <header className="bg-color-accent">
-      <div className="flex flex-col justify-between gap-2 p-4 md:items-center md:flex-row">
+    <header className="fixed top-0 left-0 z-10 w-full">
+      {/* Transparent Background */}
+      <div className="absolute inset-0 bg-opacity-20 bg-gradient-to-b filter backdrop-blur-0 from-color-accent via-50% to-80%"></div>
+      <div className="relative z-20 flex items-center justify-between p-4">
+        {/* Left side: Logo */}
         <Link href="/" className="text-2xl font-bold">
-          <div className="flex items-center justify-center md:justify-start">
-            <Image src="/just-a-logo.svg" alt="..." width={500} height={500} className="object-cover w-32 h-16 rounded sm:w-40 sm:h-20 md:w-64 md:h-28"/>
+          <div className="flex items-center justify-start">
+            <Image
+              src="/just-a-logo.svg"
+              alt="Logo"
+              width={400}
+              height={400}
+              className="object-cover w-12 h-12 rounded md:ml-2 md:w-16 md:h-16"
+            />
           </div>
         </Link>
+
+        {/* Right side: InputSearch and UserActionButton */}
         <div className="flex items-center gap-2">
           <InputSearch />
           <UserActionButton />

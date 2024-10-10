@@ -10,6 +10,12 @@ const nextConfig = {
             },
             {
                 hostname: "lh3.googleusercontent.com"
+            },
+            {
+                hostname: "github.githubassets.com"
+            },
+            {
+                hostname: "img.youtube.com"
             }
         ]
     }

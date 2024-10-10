@@ -2,27 +2,69 @@ import prisma from '@/services/prisma'
 import React from 'react'
 import CommentDelete from './CommentDelete';
 import { authUserSession } from '@/services/auth-service';
+import FormatEmail from '../Utilities/FormatEmail';
+import Image from 'next/image';
 
 const CommentBox = async({anime_mal_id}) => {
   const user = await authUserSession()
-  const comments = await prisma.comment.findMany({where: {anime_mal_id}});
+  const comments = await prisma.comment.findMany({
+    where: { anime_mal_id },
+    include: { user: true }
+  });
 
   return (
-    <div className="flex flex-col gap-4 pt-2 mb-4">
+    <div className="flex flex-col gap-4 pt-2 mb-12">
       {comments.map(comment => {
-        const userCanDelete = user?.email == comment.user_email; // untuk username yang sama
+        const userCanDelete = user?.email == comment.user_email;
+        const formatEmail = FormatEmail(comment.user_email)
+        const userProfileImage = comment.user?.image || '../default-user-profile.png';
+        
+        console.log('mongo:', comment)
+        console.log('session:', user)
+
         return (
-          <div key={comment.id} className="p-4 rounded text-color-primary bg-color-accent outline-color-hover outline-1 outline-double">
-              <div className="relative flex items-center">
-                <div className="ml-2">
-                  <p className="font-bold">{comment.username}</p>
-                  <p>{comment.comment}</p>
-                </div>
-                <div className="absolute ml-2 right-2">
+          <div key={comment.id} className="flex gap-4 p-4 bg-gray-800 rounded-lg shadow-lg text-color-primary">
+            {/* Profile Picture */}
+            <div className="flex-shrink-0">
+              <Image
+                src={userProfileImage}
+                alt={comment.username || 'User Profile'}
+                width={50}
+                height={50}
+                className="object-cover rounded-full"
+              />
+            </div>
+
+            {/* Comment Content */}
+            <div className="flex-1">
+              <div className="relative flex flex-col">
+                <p className="mb-2 text-lg font-bold text-color-secondary">
+                  {comment.username} 
+                  <span className="ml-2 text-xs font-thin text-white">({formatEmail})</span>
+                </p>
+                <p className="italic text-gray-200">{comment.comment}</p>
+                
+                {/* Delete Button */}
+                <div className="absolute top-4 right-1">
                   {userCanDelete && <CommentDelete commentId={comment.id} />}
                 </div>
               </div>
+            </div>
           </div>
+          // <div key={comment.id} className="p-4 rounded text-color-primary bg-color-hover outline-color-hover outline-1 outline-double">
+          //     <div className="relative flex items-center">
+          //       <div className="ml-2">
+          //         <p className="pb-5 text-xl font-bold text-color-secondary">
+          //             {comment.username} 
+          //             <span className="text-xs font-thin text-white">({formatEmail})</span> 
+          //         </p>
+          //         <p className="italic">{comment.comment}</p>
+          //       </div>
+          //       <div className="absolute ml-2 right-2">
+          //         {userCanDelete && <CommentDelete commentId={comment.id} />}
+          //       </div>
+          //     </div>
+          // </div>
         )
       })}
     </div>

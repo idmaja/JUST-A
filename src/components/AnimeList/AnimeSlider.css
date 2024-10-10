@@ -1,115 +1,137 @@
 .anime-slider {
-    position: relative;
-    overflow: hidden;
-    width: 80%; /* Smaller width */
-    height: 500px; /* Adjusted height */
-    margin: 0 auto; /* Center the slider */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: inset 200px 200px 500px rgba(0, 0, 0, 0.7); /* Subtle shadow */
-  }
-  
-  .anime-slider-inner {
-    display: flex;
-    transition: transform 0.5s ease;
-    height: 100%;
-  }
-  
-  .anime-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
-    border-radius: 15px; /* Rounded corners for slides */
-    overflow: hidden;
-  }
-  
-  .anime-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px; /* Ensure images are rounded */
-  }
-  
-  .anime-info:not(.anime-info-button) {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: #fff;
-    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.9);
-  }
-  
-  .anime-info h2 {
-    margin: 0 0 10px 0;
-    font-size: 1.5rem;
-  }
-  
-  .anime-rating {
-    margin: 0 0 10px 0;
-  }
-  
-  .read-more-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #ff5722;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .read-more-btn:hover {
-    background-color: #e64a19;
-  }
-  
-  .anime-pagination {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0.5;
-  }
-  
-  .dot.active {
-    opacity: 1;
-  }
-  
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1;
-    border-radius: 50%;
-  }
-  
-  .prev {
-    left: 10px;
-  }
-  
-  .next {
-    right: 10px;
-  }
-  
-  .prev:hover, .next:hover {
-    background: rgba(0, 0, 0, 0.7);
-  }
-  
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.anime-slider-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.anime-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gambar ada di bawah, diatur menggunakan z-index */
+.anime-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  filter: blur(3px); 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.anime-slide::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200%; /* Lebih tinggi agar hitam lebih dominan */
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0) 40%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+/* Informasi anime ada di atas vignet */
+.anime-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  /* text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.7); */
+  z-index: 3; /* Pastikan informasi di atas vignette */
+}
+
+.anime-info h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.anime-rating {
+  margin: 0 0 10px 0;
+}
+
+.read-more-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #ff5722;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #e64a19;
+}
+
+.anime-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.dot.active {
+  opacity: 1;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 0px;
+  cursor: pointer;
+  z-index: 4; /* Pastikan tombol di atas layer lainnya */
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}

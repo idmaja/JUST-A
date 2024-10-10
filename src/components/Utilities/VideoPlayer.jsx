@@ -1,11 +1,11 @@
 "use client" // agar berjalan di sisi client tidak dalam sisi server
 
-import { Play, XCircle } from "@phosphor-icons/react"
+import { Play, X } from "@phosphor-icons/react"
 import { useState } from "react"
 import YouTube from "react-youtube"
 
 const VideoPlayer = ({ youtubeId }) => {
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
     const [isError, setIsError] = useState(false)
 
     const handleVideoPlayer = () => {
@@ -20,50 +20,59 @@ const VideoPlayer = ({ youtubeId }) => {
         setIsError(false)
     }
 
-    const option = {
-        width: "300",
-        height: "250"
+    const options = {
+        width: "100%",  
+        height: "100%", 
     }
 
     const Player = () => {
         return (
-            <div className="fixed bottom-2 right-2">
+            <div className="fixed bottom-5 right-5 md:p-2 p-2 bg-color-dark shadow-xl rounded-lg md:max-w-[640px] md:max-h-[360px] w-[90%] h-[200px] sm:h-[250px] md:h-[360px]">
+                {/* Close Button */}
                 <button 
                     onClick={handleVideoPlayer}
-                    className="float-right px-3 mb-1 rounded-sm text-color-primary bg-color-red">
-                    {/* <XCircle size={32} /> */}
-                    X
+                    className="absolute z-10 p-1 text-white transition-all rounded-full shadow-lg md:p-2 -top-4 -right-4 bg-color-red hover:bg-red-700"
+                >
+                    <X size={28} weight="bold" />
                 </button>
-                <YouTube 
-                    videoId={youtubeId} 
-                    onReady={(event => event.target.pauseVideo())}
-                    opts={option}
-                    onError={handleError}
-                />
+                
+                {/* YouTube Video with rounded corners */}
+                <div className="relative w-full h-full overflow-hidden rounded-lg">
+                    <YouTube 
+                        videoId={youtubeId}
+                        opts={options}
+                        onError={handleError}
+                        className="w-full h-full"
+                    />
+                </div>
             </div>
         )
     }
+    
+    
 
+    // Button to open the video player
     const ButtonOpenPlayer = () => {
         return (
             <button 
                 onClick={handleVideoPlayer}
-                className="fixed flex items-center h-10 text-xl transition-all rounded shadow-xl md:text-2xl md:h-12 md:w-40 w-28 animate-bounce bottom-5 right-5 bg-color-primary text-color-dark hover:bg-color-yellow outline outline-2 outline-offset-2 outline-color-secondary"
+                className="fixed flex items-center w-32 h-12 text-xl transition-all rounded-full shadow-lg md:h-12 md:w-40 bottom-5 right-5 bg-color-primary text-color-dark md:text-2xl hover:bg-color-secondary hover:text-white animate-bounce"
             >
-                <Play size={20} weight="fill" className="ml-3 mr-1 md:mr-1 md:ml-9 text-color-secondary" />
-                Trailer
+                <Play size={24} weight="fill" className="ml-3 mr-1 md:ml-8 md:mr-2 text-color-secondary hover:text-white" />
+                <span className="md:block">Trailer</span>
             </button>
         )
     }
 
+    // Error Modal when the video fails to load
     const ErrorModal = () => (
-        <div className="fixed inset-0 flex items-center justify-center transition-all bg-opacity-50 bg-color-primary">
-            <div className="p-6 rounded shadow-lg bg-color-primary">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
+            <div className="p-6 rounded-lg shadow-xl bg-color-primary text-color-dark">
                 <h2 className="mb-4 text-xl font-bold">Error</h2>
-                <p>Video rusak silahkan coba yang lain :)</p>
+                <p>Video rusak, silahkan coba yang lain :)</p>
                 <button 
                     onClick={closeModal}
-                    className="px-4 py-2 mt-4 transition-all rounded text-color-primary bg-color-red hover:bg-opacity-75"
+                    className="px-4 py-2 mt-4 text-white transition-all bg-red-600 rounded-md hover:bg-red-700"
                 >
                     Close
                 </button>

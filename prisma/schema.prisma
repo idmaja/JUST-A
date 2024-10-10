@@ -30,6 +30,7 @@ model Comment {
   comment       String
   username      String
   anime_title   String
+  user          User   @relation(fields: [user_email], references: [email])
 }
 
 model User {
@@ -39,4 +40,15 @@ model User {
   password      String?
   image         String?
   role          String @default("user")
+  comments      Comment[]
+}
+
+model Anime {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  anime_mal_id    String @unique
+  anime_title     String? 
+  anime_score     Float?
+  anime_type      String?
+  anime_image_url String?
+  desc            String
 }

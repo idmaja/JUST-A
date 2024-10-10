@@ -24,7 +24,7 @@ const Page = async ({ params }) => {
 
   return (
     <>
-      <section> 
+      <section className="pt-14">
         <Header title={`Pencarian untuk : ${decodedKeyword}`}/>     
         <AnimeList api={setAnime} titleValue={true}/>
         <Pagination page={page} lastPage={setAnime.pagination?.last_visible_page} setPage={setPage}/>

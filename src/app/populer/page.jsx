@@ -21,9 +21,11 @@ const Page = () => {
 
   return (
     <>
-      <HeaderMenu title={`POPULAR - PAGE ${page}`}/>
-      <AnimeList api={topAnime} titleValue={true}/>
-      <Pagination page={page} lastPage={topAnime.pagination?.last_visible_page} setPage={setPage}/>
+      <section className="pt-20">
+        <HeaderMenu title={`POPULAR - PAGE ${page}`}/>
+        <AnimeList api={topAnime} titleValue={true}/>
+        <Pagination page={page} lastPage={topAnime.pagination?.last_visible_page} setPage={setPage}/>
+      </section>
     </>
   )
 }

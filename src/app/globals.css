@@ -14,6 +14,7 @@
   box-sizing: border-box;
 }
 
+
 img {
   transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
@@ -32,7 +33,7 @@ img:hover {
   }
 }
 
-.custom-loader {
+/* .custom-loader {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -57,7 +58,7 @@ img:hover {
 
 @keyframes s4 {
   100% {transform: rotate(1turn)}
-}
+} */
 
 /* .custom-loader {
   width: 120px;
@@ -127,6 +128,57 @@ img:hover {
   100%{transform: rotate(1turn)}
 } */
 
+
+/* HTML: <div class="loader"></div> */
+/* .custom-loader {
+  width: 120px;
+  height: 22px;
+  border-radius: 20px;
+  color: #ffc639;
+  border: 2px solid;
+  position: relative;
+}
+.custom-loader::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  inset: 0 100% 0 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: l6 2s infinite;
+}
+@keyframes l6 {
+    100% {inset:0}
+} */
+
+/* HTML: <div class="loader"></div> */
+
+.custom-loader {
+  width: 120px;
+  height: 22px;
+  border-radius: 40px;
+  color: #FFC639;
+  border: 2px solid;
+  position: relative;
+  overflow: hidden;
+}
+.custom-loader::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  width: 14px;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  border-radius: inherit;
+  background: currentColor;
+  box-shadow: -10px 0 12px 3px currentColor;
+  clip-path: polygon(0 5%, 100% 0,100% 100%,0 95%,-30px 50%);
+  animation: l14 1s infinite linear;
+}
+@keyframes l14 {
+  100% {left: calc(100% + 20px)}
+}
 
 
 /* width */
