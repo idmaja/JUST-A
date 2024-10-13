@@ -34,7 +34,7 @@ npm install
 Create a `.env` file in the root of the project and add the following environment variables:
 
 ```plaintext
-NEXT_PUBLIC_API_BASE_URL=https://api.jikan.moe/v4
+NEXT_PUBLIC_API_BASE_URL = https://api.jikan.moe/v4
 
 GITHUB_CLIENT = <your_github_client>
 GITHUB_SECRET = <your_github_secret>
