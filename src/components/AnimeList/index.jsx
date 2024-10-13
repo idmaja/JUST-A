@@ -21,7 +21,7 @@ const AnimeList = ({ api, titleValue, verticalList, airing, allowedIds}) => {
             key={index}
           >
             <Image
-              src={anime.images.webp.image_url}
+              src={anime.images.webp.large_image_url}
               alt={anime.title}
               width={500}
               height={500}
@@ -30,7 +30,7 @@ const AnimeList = ({ api, titleValue, verticalList, airing, allowedIds}) => {
             {titleValue && (
               <div className="flex items-center justify-between mt-2">
                 <div className="flex items-center">
-                  <Star size={10} weight="light" className="mr-2" />
+                  <Star size={10} weight="fill" className="mr-2 text-color-yellow" />
                   {anime.score}
                 </div>
                 {anime.type}

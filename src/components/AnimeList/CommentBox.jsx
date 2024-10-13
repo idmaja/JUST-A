@@ -51,20 +51,6 @@ const CommentBox = async({anime_mal_id}) => {
               </div>
             </div>
           </div>
-          // <div key={comment.id} className="p-4 rounded text-color-primary bg-color-hover outline-color-hover outline-1 outline-double">
-          //     <div className="relative flex items-center">
-          //       <div className="ml-2">
-          //         <p className="pb-5 text-xl font-bold text-color-secondary">
-          //             {comment.username} 
-          //             <span className="text-xs font-thin text-white">({formatEmail})</span> 
-          //         </p>
-          //         <p className="italic">{comment.comment}</p>
-          //       </div>
-          //       <div className="absolute ml-2 right-2">
-          //         {userCanDelete && <CommentDelete commentId={comment.id} />}
-          //       </div>
-          //     </div>
-          // </div>
         )
       })}
     </div>

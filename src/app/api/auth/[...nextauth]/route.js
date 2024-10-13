@@ -20,26 +20,40 @@ export const authOption = {
     },
     callbacks: {
         async signIn({ user, account, profile }) {
-            const email = user.email;
-            const username = profile.name;
+            const email = user.email || profile.email;
+            const username = user.name || profile.name;
             const image = user.image || profile.picture;
             
             console.log('user:',user)
             console.log('profile',profile)
 
-            // Save user to database if doesn't exist
-            const existingUser = await prisma.user.findUnique({ where: { email } });
-            if (!existingUser) {
-                await prisma.user.create({
-                    data: {
-                        email,
-                        username,
-                        image
-                    }
-                });
+            try {
+                // Cek apakah user sudah ada di database
+                const existingUser = await prisma.user.findUnique({ where: { email } });
+        
+                if (!existingUser) {
+                    await prisma.user.create({
+                        data: {
+                            email,
+                            username,
+                            image
+                        }
+                    });
+                } else {
+                    // menyesuaikan jika profile picture user Google/Github berubah
+                    await prisma.user.update({
+                        where: { email },
+                        data: {
+                            image
+                        }
+                    });
+                }
+        
+                return true;
+            } catch (error) {
+                console.error('Error signing in:', error);
+                return false; 
             }
-
-            return true;
         },
         async session({ session, token }) {
             session.user.id = token.id;
