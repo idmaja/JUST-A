@@ -37,12 +37,20 @@ const UserActionButtonClient = ({ user }) => {
           />
         </button>
       ) : (
-        <button
-          onClick={handleToggle}
-          className="inline-block px-2 py-1 text-2xl transition-all rounded-3xl bg-color-hover hover:bg-color-secondary"
-        >
-          Sign In
-        </button>
+        // <button
+        //   onClick={handleToggle}
+        //   className="inline-block px-2 py-1 text-2xl transition-all rounded-3xl bg-color-hover hover:bg-color-secondary"
+        // >
+        //   Sign In
+        // </button>
+          <Link
+            href="/auth/signin"
+            className="flex items-center gap-2 px-4 py-2 text-2xl transition-all rounded-3xl bg-color-secondary hover:bg-color-yellow"
+            onClick={() => setIsOpen(false)}
+          >
+            <SignIn size={20} className="text-color-hover" weight="bold" alt="Sign in" />
+            <span className="text-base">Sign In</span>
+        </Link>
       )}
 
       {/* Dropdown */}
