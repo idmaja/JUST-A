@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "./Header";
+import SuccessModal from "../Utilities/SuccessModal";
 
 const ProfileForm = ({ user }) => {
   const [username, setUsername] = useState(user.username);
@@ -44,9 +45,9 @@ const ProfileForm = ({ user }) => {
 
   return (
     <section className="w-full px-4 pt-10 mt-4 md:pt-24">
-      <Header title={"UPDATE USERNAME"} />
+      <Header title={"ADD NEW USERNAME"} />
       <div className="flex items-start justify-center min-h-screen">
-        <div className="w-full max-w-md p-8 mt-10 rounded-lg shadow-lg bg-slate-900">
+        <div className="w-full max-w-md p-8 mt-2 rounded-lg shadow-lg md:mt-10 bg-slate-900">
           <form onSubmit={handleUpdate} className="space-y-6 text-color-primary">
             <div>
               <motion.input
@@ -70,8 +71,12 @@ const ProfileForm = ({ user }) => {
         </div>
       </div>
 
+      {showModal && (
+        <SuccessModal message="Update username successfully!" />
+      )}
+
       {/* Modal for feedback */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showModal && (
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black"
@@ -98,7 +103,7 @@ const ProfileForm = ({ user }) => {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </section>
   );
 };

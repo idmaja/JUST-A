@@ -13,6 +13,48 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// OLD
+// model Collection {
+//   id            String @id @default(auto()) @map("_id") @db.ObjectId
+//   anime_mal_id  String 
+//   user_email    String
+//   anime_image   String?
+//   anime_title   String?
+
+//   @@unique([user_email, anime_mal_id])
+// }
+
+// model Comment {
+//   id            String @id @default(auto()) @map("_id") @db.ObjectId
+//   anime_mal_id  String 
+//   user_email    String
+//   comment       String
+//   username      String
+//   anime_title   String
+//   user          User   @relation(fields: [user_email], references: [email])
+// }
+
+// model User {
+//   id            String @id @default(auto()) @map("_id") @db.ObjectId
+//   email         String  @unique
+//   username      String?
+//   password      String?
+//   image         String?
+//   role          String @default("user")
+//   comments      Comment[]
+// }
+
+// model Anime {
+//   id              String @id @default(auto()) @map("_id") @db.ObjectId
+//   anime_mal_id    String @unique
+//   anime_title     String? 
+//   anime_score     Float?
+//   anime_type      String?
+//   anime_image_url String?
+//   desc            String
+// }
+
+
 model Collection {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   anime_mal_id  String 
@@ -30,7 +72,23 @@ model Comment {
   comment       String
   username      String
   anime_title   String
-  user          User   @relation(fields: [user_email], references: [email])
+  likes         Int    @default(0) 
+  dislikes      Int    @default(0) 
+  user          User?   @relation(fields: [user_email], references: [email], onDelete: Cascade)
+  anime         Anime?  @relation(fields: [anime_mal_id], references: [anime_mal_id])
+
+  commentLikes CommentLike[]
+}
+
+model CommentLike {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  commentId String   @db.ObjectId
+  type      String   
+  user      User     @relation(fields: [userId], references: [id])
+  comment   Comment  @relation(fields: [commentId], references: [id])
+
+  @@unique([userId, commentId])
 }
 
 model User {
@@ -41,6 +99,7 @@ model User {
   image         String?
   role          String @default("user")
   comments      Comment[]
+  commentLikes  CommentLike[]  
 }
 
 model Anime {
@@ -51,4 +110,6 @@ model Anime {
   anime_type      String?
   anime_image_url String?
   desc            String
+
+  comments       Comment[]  
 }

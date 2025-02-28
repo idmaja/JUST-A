@@ -24,8 +24,8 @@ export const authOption = {
             const username = user.name || profile.name;
             const image = user.image || profile.picture;
             
-            console.log('user:',user)
-            console.log('profile',profile)
+            // console.log('user:',user)
+            // console.log('profile',profile)
 
             try {
                 // Cek apakah user sudah ada di database
@@ -33,19 +33,13 @@ export const authOption = {
         
                 if (!existingUser) {
                     await prisma.user.create({
-                        data: {
-                            email,
-                            username,
-                            image
-                        }
+                        data: { email, username, image }
                     });
                 } else {
                     // menyesuaikan jika profile picture user Google/Github berubah
                     await prisma.user.update({
                         where: { email },
-                        data: {
-                            image
-                        }
+                        data: { image }
                     });
                 }
         

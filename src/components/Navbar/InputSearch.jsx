@@ -24,16 +24,16 @@ const InputSearch = () => {
     }
 
     return (
-        <div className="relative w-full max-w-md">
+        <div className="relative w-32 sm:w-48 md:max-w-md">
             <motion.input 
                 placeholder="Find Anime.." 
-                className="w-full p-2 rounded-3xl"
+                className="w-full h-full p-1 text-sm sm:p-2 sm:text-base rounded-3xl"
                 ref={searchRef}
                 onKeyDown={handleSearch}
                 whileFocus={{ scale: 1.025 }}
             />
-            <button className="absolute top-2 end-2" onClick={handleSearch}>
-                <MagnifyingGlass size={24} />
+            <button className="absolute top-1.5 sm:top-2 end-2 mb-2" onClick={handleSearch}>
+                <MagnifyingGlass size={20} />
             </button>
         </div>
     )

@@ -3,11 +3,14 @@
 import { useRouter } from "next/navigation"
 import { Trash } from '@phosphor-icons/react/dist/ssr'
 import { useState } from "react"
+import SuccessModal from "../Utilities/SuccessModal"
 
 const CommentDelete = ({ commentId }) => {
   const router = useRouter()
 
   const [showModal, setShowModal] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showFailedModal, setShowFailedModal] = useState(false);
 
   const handleDeleteClick = (event) => {
     event.preventDefault()
@@ -20,15 +23,28 @@ const CommentDelete = ({ commentId }) => {
         method: "DELETE"
       })
 
-      if (response.ok) {
+      const result = await response.json();
+      
+      if (result.status === 200 && result.isDeleted) {
         setShowModal(false)
-        router.refresh()
-        // router.push('/users/dashboard/comment')
+        setShowSuccessModal(true);
+        setTimeout(() => {
+          setShowSuccessModal(false);
+          router.refresh()
+          location.reload()
+        }, 2000);
       } else {
-        console.error("Failed to delete comment.")
+        setShowFailedModal(true);
+        setTimeout(() => {
+          setShowFailedModal(false);
+        }, 2000);
       }
     } catch (error) {
       console.error("Error while deleting comment:", error)
+      setShowFailedModal(true);
+      setTimeout(() => {
+        setShowFailedModal(false);
+      }, 2000);
     }
   } 
 
@@ -68,6 +84,14 @@ const CommentDelete = ({ commentId }) => {
           </div>
         </div>
       )}
+
+      {showSuccessModal && (
+        <SuccessModal message="Comment deleted!" />
+      )}
+      {showFailedModal && (
+        <SuccessModal message="Failed to delete comment, try again!" />
+      )}
+      
     </div>
   )
 }
