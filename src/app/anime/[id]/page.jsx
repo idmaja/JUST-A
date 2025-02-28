@@ -10,13 +10,6 @@ import { Play, Star } from "@phosphor-icons/react/dist/ssr"
 
 const Page = async({ params: { id } }) => {
     const user = await authUserSession()
-    if (!user) {
-        return (
-          <div className="flex items-center justify-center min-h-screen">
-            <p className="text-xl">You must be logged in to view this page.</p>
-          </div>
-        );
-    }
     const anime = await getAnimeResponse(`anime/${id}`)
     const collection = await prisma.collection.findFirst({
         where: { user_email: user?.email, anime_mal_id: id }
