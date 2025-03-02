@@ -8,13 +8,6 @@ import LikeDislike from './LikeDislike';
 
 const CommentBox = async ({ anime_mal_id }) => {
   const user = await authUserSession();
-  if (!user) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <p className="text-xl">You must be logged in to view this page.</p>
-      </div>
-    );
-  }
   const comments = await prisma.comment.findMany({
     where: { anime_mal_id },
     include: { user: true },
