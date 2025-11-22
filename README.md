@@ -1,3 +1,6 @@
+![JUST-A](https://res.cloudinary.com/dmsvn9nzs/image/upload/v1763826238/project-justa_fun6za.png)
+![JUST-A](https://res.cloudinary.com/dmsvn9nzs/image/upload/v1763826238/project-justa-2_yegzql.png)
+
 # JUST-A (Anime List)
 
 **JUST-A** is a modern web application for discovering and tracking anime. Built with **Next.js 14**, this application utilizes the **Jikan API** (Unofficial MyAnimeList API) to provide real-time data on popular, airing, and seasonal anime. It features a robust user system allowing for collections, commenting, and social interactions like likes/dislikes.
