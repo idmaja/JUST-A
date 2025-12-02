@@ -41,16 +41,12 @@ Follow these steps to set up the project locally.
 
 ### 1. Clone the Repository
 
-Bash
-
 ```bash
 git clone https://github.com/idmaja/JUST-A.git
 cd JUST-A
 ```
 
 ### 2. Install Dependencies
-
-Bash
 
 ```bash
 npm install
@@ -91,7 +87,6 @@ GOOGLE_CLIENT_SECRET="your_google_client_secret"`
 
 Sync your Prisma schema with your MongoDB database:
 
-Bash
 ```bash
 npx prisma generate
 npx prisma db push
@@ -100,8 +95,6 @@ npx prisma db push
 ### 5. Run the Application
 
 Start the development server:
-
-Bash
 
 ```bash
 npm run dev
