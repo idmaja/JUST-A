@@ -5,7 +5,7 @@
 
 **JUST-A** is a modern web application for discovering and tracking anime. Built with **Next.js 14**, this application utilizes the **Jikan API** (Unofficial MyAnimeList API) to provide real-time data on popular, airing, and seasonal anime. It features a robust user system allowing for collections, commenting, and social interactions like likes/dislikes.
 
-## 🚀 Features
+## Features
 
 - **Browse Anime:** View Top Anime, Seasonal releases (e.g., Spring 2024), and currently Airing anime.
 - **Search Functionality:** Real-time search for anime titles using the Jikan API/page.jsx].
@@ -18,7 +18,7 @@
 - **User Dashboard:** Manage profile (change username), view collections, and track comment history.
 - **Responsive Design:** Fully responsive UI built with **Tailwind CSS**.
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 - **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
 - **Language:** JavaScript (React)
@@ -29,7 +29,7 @@
 - **Data Source:** [Jikan API v4](https://jikan.moe/)
 - **Icons:** @phosphor-icons/react & react-icons
 
-## 🛠️ Getting Started
+## Getting Started
 
 Follow these steps to set up the project locally.
 
@@ -102,7 +102,7 @@ npm run dev
 
 Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000&authuser=3) in your browser to see the application.
 
-## 🏗️ Project Structure
+## Project Structure
 
 Here is a brief overview of the project structure based on the uploaded files:
 
@@ -123,11 +123,11 @@ JUST-A/
 └── ...config files
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International Public License**. See the [LICENSE](https://www.google.com/search?q=LICENSE&authuser=3) file for details.
 
-## 🙌 Acknowledgements
+## Acknowledgements
 
 - [Jikan API](https://jikan.moe/) for providing the anime data.
 - [Dea Afrizal](https://www.youtube.com/@deaafrizal) (btw this project was inspired by his Next.js course).
