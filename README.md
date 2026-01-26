@@ -1,20 +1,43 @@
-## Getting Started
+![JUST-A](https://res.cloudinary.com/dmsvn9nzs/image/upload/v1763826238/project-justa_fun6za.png)
+![JUST-A](https://res.cloudinary.com/dmsvn9nzs/image/upload/v1763826238/project-justa-2_yegzql.png)
 
-# Next.js Movie/Anime List Project
+# JUST-A (Anime List)
 
-This is a Next.js project for listing movies and anime, utilizing the [Jikan API](https://api.jikan.moe/v4) for data retrieval. The project uses MongoDB as its database and Prisma as the ORM. Before running the project, ensure you initialize the environment variables.
+**JUST-A** is a modern web application for discovering and tracking anime. Built with **Next.js 14**, this application utilizes the **Jikan API** (Unofficial MyAnimeList API) to provide real-time data on popular, airing, and seasonal anime. It features a robust user system allowing for collections, commenting, and social interactions like likes/dislikes.
 
 ## Features
 
-- List movies and anime fetched from the Jikan API.
-- MongoDB for database management.
-- Prisma for ORM.
+- **Browse Anime:** View Top Anime, Seasonal releases (e.g., Spring 2024), and currently Airing anime.
+- **Search Functionality:** Real-time search for anime titles using the Jikan API/page.jsx].
+- **Detailed Information:** View anime details, synopses, scores, genres, and watch trailers/page.jsx].
+- **User Authentication:** Secure login via **Google** and **GitHub** using NextAuth.js/route.js].
+- **Personal Collection:** Users can add anime to their personal archive/collection.
+- **Interactive Comments:**
+    - Post and delete comments on anime pages.
+    - Like and Dislike functionality for comments.
+- **User Dashboard:** Manage profile (change username), view collections, and track comment history.
+- **Responsive Design:** Fully responsive UI built with **Tailwind CSS**.
 
-## Prerequisites
+## Tech Stack
 
-- [Node.js](https://nodejs.org/en/)
-- [MongoDB](https://www.mongodb.com/)
-- [Prisma CLI](https://www.prisma.io/docs/getting-started/quickstart)
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+- **Language:** JavaScript (React)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Database:** MongoDB
+- **ORM:** [Prisma](https://www.prisma.io/)
+- **Authentication:** [NextAuth.js](https://next-auth.js.org/)
+- **Data Source:** [Jikan API v4](https://jikan.moe/)
+- **Icons:** @phosphor-icons/react & react-icons
+
+## Getting Started
+
+Follow these steps to set up the project locally.
+
+### Prerequisites
+
+- Node.js (v18 or later recommended)
+- npm or yarn
+- A MongoDB database (Local or Atlas)
 
 ### 1. Clone the Repository
 
@@ -29,86 +52,82 @@ cd JUST-A
 npm install
 ```
 
-### 3. Initialize Environment Variables
+### 3. Environment Variables
 
-Create a `.env` file in the root of the project and add the following environment variables:
+Create a `.env` file in the root directory and populate it with the necessary API keys and database configuration based on `src/services/prisma.js` and `src/app/api/auth/[...nextauth]/route.js`:
 
-```plaintext
-NEXT_PUBLIC_API_BASE_URL = https://api.jikan.moe/v4
+Cuplikan kode
 
-GITHUB_CLIENT = <your_github_client>
-GITHUB_SECRET = <your_github_secret>
-
-GOOGLE_CLIENT_ID = <your_google_client_id>
-GOOGLE_CLIENT_SECRET = <your_google_client_secret>
-
-NEXTAUTH_SECRET = <your_nextauth_secret>
-
-DATABASE_URL= <your_mongodb_url>
+### Jikan API Base URL
+```env
+NEXT_PUBLIC_API_BASE_URL="https://api.jikan.moe/v4"
 ```
 
-### 4. Prisma Setup
+### Database Connection (MongoDB)
+```env
+DATABASE_URL="mongodb+srv://<username>:<password>@cluster0.mongodb.net/animelist"
+```
 
-Generate the Prisma client:
+### NextAuth Configuration
+```env
+NEXTAUTH_SECRET="your_super_secret_random_string"
+NEXTAUTH_URL="http://localhost:3000"
+```
+
+### OAuth Providers
+```env
+GITHUB_CLIENT="your_github_client_id"
+GITHUB_SECRET="your_github_client_secret"
+
+GOOGLE_CLIENT_ID="your_google_client_id"
+GOOGLE_CLIENT_SECRET="your_google_client_secret"`
+```
+
+### 4. Database Setup
+
+Sync your Prisma schema with your MongoDB database:
 
 ```bash
 npx prisma generate
+npx prisma db push
 ```
 
-Run Prisma migrations to set up the database schema:
+### 5. Run the Application
 
-```bash
-npx prisma migrate dev
-```
-
-### 5. Running the Development Server
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000&authuser=3) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Here is a brief overview of the project structure based on the uploaded files:
 
-## Building for Production
-
-To build the application for production, run:
-
-```bash
-npm run build
+```txt
+JUST-A/
+├── prisma/
+│   └── schema.prisma      # Database schema (User, Collection, Comment, Anime)
+├── public/                # Static assets (images, svgs)
+├── src/
+│   ├── app/               # Next.js App Router pages (api routes, auth, anime, users)
+│   ├── components/        # Reusable React components
+│   │   ├── AnimeList/     # Components specific to anime listing & interactions
+│   │   ├── Dashboard/     # Components for user dashboard
+│   │   ├── Navbar/        # Navigation bar components
+│   │   └── Utilities/     # Helper components (Pagination, VideoPlayer, etc.)
+│   ├── services/          # API and Database services (auth-service, prisma, api-service)
+│   └── middleware.js      # Next.js middleware for route protection
+└── ...config files
 ```
-
-Then, to start the production server, run:
-
-```bash
-npm run dev
-```
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## License
 
-This project is licensed under the 
-### Creative Commons Attribution-NonCommercial 4.0 International Public License.
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International Public License**. See the [LICENSE](https://www.google.com/search?q=LICENSE&authuser=3) file for details.
 
-Feel free to replace `your-username` and `your-repo-name` with your actual GitHub username and repository name. This `README.md` provides a clear and concise overview of your project, its prerequisites, setup instructions, and resources for further learning.
+## Acknowledgements
 
-
-
-
+- [Jikan API](https://jikan.moe/) for providing the anime data.
+- [Dea Afrizal](https://www.youtube.com/@deaafrizal) (btw this project was inspired by his Next.js course).
