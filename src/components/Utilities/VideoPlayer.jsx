@@ -1,4 +1,4 @@
-"use client" // agar berjalan di sisi client tidak dalam sisi server
+"use client"
 
 import { Play, X } from "@phosphor-icons/react"
 import { useState } from "react"

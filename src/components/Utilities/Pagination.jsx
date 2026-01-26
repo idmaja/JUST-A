@@ -6,7 +6,7 @@ const Pagination = ({ page, lastPage, setPage }) => {
 
     const getPageNumbers = () => {
         const pages = [];
-        const maxVisiblePages = 5;  // Control how many pages to display at a time
+        const maxVisiblePages = 5;
 
         let startPage = Math.max(1, page - Math.floor(maxVisiblePages / 2));
         let endPage = Math.min(lastPage, startPage + maxVisiblePages - 1);
@@ -33,7 +33,7 @@ const Pagination = ({ page, lastPage, setPage }) => {
 
     const handlePageChange = (pageNum) => {
         setPage(pageNum);
-        scrollToTop(); // Scroll to the top after page change
+        scrollToTop();
     };
 
     return (

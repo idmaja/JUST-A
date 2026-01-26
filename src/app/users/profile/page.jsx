@@ -3,7 +3,7 @@ import ProfileForm from "@/components/Dashboard/ProfileForm";// Client-side comp
 import prisma from "@/services/prisma";
 
 const ProfilePage = async () => {
-  const userSession = await authUserSession(); // Fetch user session on the server side
+  const userSession = await authUserSession();
   if (!userSession) {
     return (
       <div className="flex items-center justify-center min-h-screen">

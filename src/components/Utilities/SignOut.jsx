@@ -20,11 +20,11 @@ const SignOut = ({ user }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setShowImage(false);  // Trigger fade-out
+      setShowImage(false);
 
       setTimeout(() => {
         setCurrentImage((prevImage) => (prevImage + 1) % images.length);  
-        setShowImage(true);  // Trigger fade-in
+        setShowImage(true);
       }, 500);  
       
     }, 3000); 

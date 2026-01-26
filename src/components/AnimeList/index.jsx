@@ -25,7 +25,7 @@ const AnimeList = ({ api, titleValue, verticalList, airing, allowedIds}) => {
               alt={anime.title}
               width={500}
               height={500}
-              className="object-cover w-full h-64 rounded" // Tetap menggunakan object-cover
+              className="object-cover w-full h-64 rounded"
             />
             {titleValue && (
               <div className="flex items-center justify-between mt-2">

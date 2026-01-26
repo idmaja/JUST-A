@@ -11,7 +11,7 @@ const Page = async () => {
 
   const airingAnime = await getAnimeResponse("top/anime", "filter=airing")
 
-  const animeSlider = await getAnimeResponse("top/anime", "filter=airing&&limit=20") // limitnya bisa dihilangkan
+  const animeSlider = await getAnimeResponse("top/anime", "filter=airing&&limit=20")
 
 
 

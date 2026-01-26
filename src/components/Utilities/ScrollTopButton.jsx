@@ -2,7 +2,7 @@ import { ArrowUp } from "@phosphor-icons/react/dist/ssr";
 
 const ScrollTopButton = ({ onClick }) => {
   const handleScrollTop = () => {
-    onClick(); // Call the onClick function passed as props
+    onClick();
   };
 
   return (

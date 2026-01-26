@@ -3,7 +3,7 @@ import { authOption } from "@/app/api/auth/[...nextauth]/route";
 import prisma from "@/services/prisma";
 
 export async function PUT(req) {
-  const session = await getServerSession(authOption); // Use authOptions for session retrieval
+  const session = await getServerSession(authOption);
   
   if (!session?.user) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });

@@ -2,7 +2,7 @@ import prisma from "@/services/prisma";
 
 
 export async function DELETE(req, { params }) {
-  const { id } = params; // Mengambil id dari params
+  const { id } = params;
 
   try {
     await prisma.comment.delete({
@@ -20,8 +20,8 @@ export async function DELETE(req, { params }) {
 
 
 export async function PUT(req, { params }) {
-  const { id } = params; // Mengambil id dari params
-  const { comment } = await req.json(); // Mengambil comment dari request body
+  const { id } = params;
+  const { comment } = await req.json();
 
   try {
     await prisma.comment.update({

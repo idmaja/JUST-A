@@ -12,14 +12,14 @@ const AnimeSlider = ({ animeList }) => {
 
   const getRandomSubset = (list, num) => {
     const shuffled = list
-      .map((item) => ({ ...item, sort: Math.random() })) // Tambahkan properti 'sort' acak pada setiap anime
-      .sort((a, b) => a.sort - b.sort); // Urutkan berdasarkan properti acak
-    return shuffled.slice(0, num); // Ambil `num` elemen pertama setelah diacak
+      .map((item) => ({ ...item, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort);
+    return shuffled.slice(0, num);
   };
 
   useEffect(() => {
     if (animeList?.data) {
-      setDisplayedAnimeList(getRandomSubset(animeList.data, 10)); // Set anime acak dari API
+      setDisplayedAnimeList(getRandomSubset(animeList.data, 10));
     }
   }, [animeList]);
 

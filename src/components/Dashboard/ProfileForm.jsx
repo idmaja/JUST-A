@@ -1,4 +1,4 @@
-"use client"; // Enables client-side rendering
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -8,9 +8,8 @@ import SuccessModal from "../Utilities/SuccessModal";
 
 const ProfileForm = ({ user }) => {
   const [username, setUsername] = useState(user.username);
-  console.log('nama: ', username);
   const [message, setMessage] = useState("");
-  const [showModal, setShowModal] = useState(false); // Modal visibility state
+  const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
   const handleUpdate = async (e) => {

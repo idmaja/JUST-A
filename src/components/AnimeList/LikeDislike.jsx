@@ -7,7 +7,7 @@ import SuccessModal from "../Utilities/SuccessModal";
 const LikeDislike = ({ commentId, initialLikes, initialDislikes, initialUserReaction = null }) => {
   const [likes, setLikes] = useState(initialLikes);
   const [dislikes, setDislikes] = useState(initialDislikes);
-  const [userReaction, setUserReaction] = useState(initialUserReaction); // 'LIKE', 'DISLIKE', atau null
+  const [userReaction, setUserReaction] = useState(initialUserReaction);
   const [modalMessage, setModalMessage] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -94,14 +94,14 @@ const LikeDislike = ({ commentId, initialLikes, initialDislikes, initialUserReac
       <button 
         onClick={handleLike} 
         className={`flex items-center gap-1 ${likeButtonStyle}`}
-        disabled={userReaction === 'LIKE'}  // Nonaktifkan tombol jika sudah like
+        disabled={userReaction === 'LIKE'}
       >
         <FaThumbsUp /> {likes}
       </button>
       <button 
         onClick={handleDislike} 
         className={`flex items-center gap-1 ${dislikeButtonStyle}`}
-        disabled={userReaction === 'DISLIKE'}  // Nonaktifkan tombol jika sudah dislike
+        disabled={userReaction === 'DISLIKE'}
       >
         <FaThumbsDown /> {dislikes}
       </button>
