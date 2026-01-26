@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AnimeList = ({ api, titleValue, verticalList, airing, allowedIds}) => {
   const allowedAnime = allowedIds;
-  // console.log(allowedAnime)
+
   
   const gridClass = airing ? "grid grid-cols-2 gap-4 px-4" : verticalList ? "flex flex-col gap-4" : "grid grid-cols-2 gap-4 px-4 md:grid-cols-8 sm:grid-cols-3";
 

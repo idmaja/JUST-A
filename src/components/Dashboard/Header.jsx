@@ -17,7 +17,7 @@ const Header = ({ title }) => {
                     <div className="w-12 h-12 transition-all md:ml-5 md:w-14 md:h-14 hover:text-color-secondary">
                         <ArrowFatLeft className="w-full h-full mt-2" weight="light" />
                     </div>
-                    {/* <ArrowFatLeft size={60} className="transition-all md:ml-5 hover:text-color-secondary" weight="light" /> */}
+                    
                 </button>
             </div>
             <h3 className="mx-auto text-3xl font-bold underline text-color-secondary underline-offset-4">

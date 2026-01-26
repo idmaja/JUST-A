@@ -12,8 +12,6 @@ const Header = ({title, linkHref, linkTitle}) => {
                 <Link href={linkHref} className="transition-all py-2.5 px-5 me-2 mb-2 text-sm font-medium text-color-blue focus:outline-non 
                                                 rounded-full border border-color-secondary hover:bg-color-yellow hover:text-color-primary">
                     {linkTitle}
-                    {/* <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                    </span>          */}
                 </Link>
                 : null
             }

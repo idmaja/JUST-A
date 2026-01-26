@@ -79,7 +79,7 @@ const SignIn = ({ providers }) => {
             </div>
           ))}
         </div>
-        {/* <p className="mt-6 text-sm text-center text-gray-500">New here? <a href="/register" className="text-color-secondary hover:underline">Create an account</a></p> */}
+        
       </div>
     </div>
   );

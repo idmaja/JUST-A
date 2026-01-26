@@ -11,12 +11,12 @@ const ProfilePage = async () => {
       </div>
     );
   }
-  // console.log(userSession.email)
+
 
   const user = await prisma.user.findUnique({
     where: { email: userSession.email },
   });
-  // console.log("Fetched user:", user);
+
 
   return (
     <div>

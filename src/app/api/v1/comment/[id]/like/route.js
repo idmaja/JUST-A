@@ -19,12 +19,12 @@ export async function POST(req, { params }) {
       },
     });
 
-    // Jika sudah like, tidak melakukan apa-apa
+
     if (existingReaction?.type === 'LIKE') {
       return Response.json({ message: 'Already liked' }, { status: 400 });
     }
 
-    // Jika sebelumnya dislike, hapus dislike dan decrement dislikes
+
     if (existingReaction?.type === 'DISLIKE') {
       await prisma.commentLike.delete({ where: { id: existingReaction.id } });
       await prisma.comment.update({
@@ -33,7 +33,7 @@ export async function POST(req, { params }) {
       });
     }
 
-    // Tambahkan like baru
+
     await prisma.commentLike.create({
       data: { userId, commentId: id, type: 'LIKE' },
     });

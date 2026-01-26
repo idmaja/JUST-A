@@ -15,11 +15,9 @@ const EditCommentModal = ({ comment, onClose, anime_mal_id }) => {
 
       if (response.ok) {
         onClose();
-      } else {
-        console.error("Failed to edit comment.");
       }
     } catch (error) {
-      console.error("Error while editing comment:", error);
+      
     }
   }
 

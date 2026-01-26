@@ -26,7 +26,6 @@ const CollectionButton = ({ anime_mal_id, user_email, anime_image, anime_title }
           setIsInCollection(result.isInCollection)
         }
       } catch (error) {
-        console.error("Error fetching collection status:", error)
         setShowFailedModal(true);
         setTimeout(() => {
           setShowFailedModal(false);
@@ -60,7 +59,6 @@ const CollectionButton = ({ anime_mal_id, user_email, anime_image, anime_title }
       }, 2000);
       setIsInCollection(true)
     } else {
-      console.error("Error adding collection : ", error)
       setShowFailedAddModal(true);
       setTimeout(() => {
         setShowFailedAddModal(false);
@@ -89,7 +87,6 @@ const CollectionButton = ({ anime_mal_id, user_email, anime_image, anime_title }
       }, 2000);
       setIsInCollection(false)
     } else {
-      console.error("Error deleting collection : ", error)
       setShowFailedDeleteModal(true);
       setTimeout(() => {
         setShowFailedDeleteModal(false);

@@ -28,23 +28,23 @@ const Page = async () => {
 
   return (
     <div className="flex items-center justify-center pt-10 pb-10">
-      {/* Card Container */}
+      
       <div className="w-[90%] max-w-[1200px] rounded-xl shadow-lg bg-slate-800 shadow-color-accent text-color-primary mt-14">
-        {/* Gunakan flex-col untuk mobile (default) dan flex-row untuk desktop (md:) */}
+        
         <div className="flex flex-col md:flex-row">
-            {/* Bagian Profile */}
+            
             <div className="flex flex-col items-center justify-center w-full p-6 border-b border-gray-700 md:w-3/12 md:border-b-0 md:border-r">
                 <ProfileSection user={user} dbUser={dbUser} />
             </div>
             
-            {/* Bagian Collection & Comments */}
+            
             <div className="flex flex-col w-full p-6 space-y-6 md:w-9/12">
                 <div id="collection">
                     <h2 className="flex items-center gap-2 mb-4 text-2xl font-bold">
                     <   Archive size={24} />
                         Your Collection
                     </h2>
-                    {/* Wrapper dengan scrollbar vertikal & sembunyikan scrollbar horizontal */}
+                    
                     <div className="md:max-h-[300px] max-h-[300px] overflow-y-auto overflow-x-hidden mb-4">
                         <CollectionSection collection={collection} />
                     </div>

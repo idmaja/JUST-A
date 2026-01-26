@@ -38,7 +38,7 @@ const Page = async({ params: { id } }) => {
                 />  
                 <div className="text-center text-color-primary md:text-left">
                     <h3 className="text-4xl font-bold">{anime.data.title} | {anime.data.title_japanese}</h3>
-                    {/* <div className="mt-2 font-light">R - 17+ (violence & profanity)</div> */}
+                    
                     {anime.data.synopsis}
                     <div className="mt-6">
                         <p><strong>Type:</strong> {anime.data.type}</p>

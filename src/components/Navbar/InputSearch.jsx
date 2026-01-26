@@ -18,9 +18,9 @@ const InputSearch = () => {
             event.preventDefault()
             
             router.push(`/search/${keyword}`)
-            // alert("DI ENTER")
+
         }
-        // alert(searchRef.current.value)
+
     }
 
     return (

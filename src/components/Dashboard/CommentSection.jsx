@@ -34,7 +34,7 @@ const CommentSection = ({ comments }) => {
                 <p className="italic text-gray-600">{comment.comment}</p>
             </Link>
             
-            {/* Jika ingin tombol delete, uncomment berikut: */}
+            
             <div className="absolute top-4 right-4">
                 <CommentDelete commentId={comment.id} />
             </div>

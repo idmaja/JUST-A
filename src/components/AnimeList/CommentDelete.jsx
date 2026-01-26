@@ -40,7 +40,6 @@ const CommentDelete = ({ commentId }) => {
         }, 2000);
       }
     } catch (error) {
-      console.error("Error while deleting comment:", error)
       setShowFailedModal(true);
       setTimeout(() => {
         setShowFailedModal(false);
@@ -65,7 +64,7 @@ const CommentDelete = ({ commentId }) => {
             <h2 className="mb-4 text-xl font-semibold text-gray-800">Are you sure?</h2>
             <p className="mb-6 text-gray-600">Do you really want to delete this comment? This action cannot be undone!</p>
             <div className="flex justify-end gap-4">
-              {/* Tombol Cancel */}
+              
               <button 
                 className="px-4 py-2 font-semibold text-gray-700 transition-colors border border-gray-400 rounded hover:bg-gray-200"
                 onClick={handleCancel}
@@ -73,7 +72,7 @@ const CommentDelete = ({ commentId }) => {
                 Cancel
               </button>
 
-              {/* Tombol Delete */}
+              
               <button 
                 className="px-4 py-2 font-semibold text-white transition-colors bg-red-600 rounded hover:bg-red-700"
                 onClick={handleDelete}

@@ -22,7 +22,7 @@ const CommentBox = async ({ anime_mal_id }) => {
 
         return (
           <div key={comment.id} className="flex gap-4 p-4 bg-gray-800 rounded-lg shadow-lg text-color-primary">
-            {/* Profile Picture */}
+            
             <div className="flex-shrink-0">
               <Image
                 src={userProfileImage}
@@ -33,7 +33,7 @@ const CommentBox = async ({ anime_mal_id }) => {
               />
             </div>
 
-            {/* Comment Content */}
+            
             <div className="flex-1">
               <div className="relative flex flex-col">
                 <p className="mb-2 text-lg font-bold text-color-secondary">
@@ -42,10 +42,10 @@ const CommentBox = async ({ anime_mal_id }) => {
                 </p>
                 <p className="italic text-gray-200">{comment.comment}</p>
 
-                {/* Like & Dislike Buttons */}
+                
                 {user && <LikeDislike commentId={comment.id} initialLikes={comment.likes} initialDislikes={comment.dislikes} />}
 
-                {/* Delete Button */}
+                
                 <div className="absolute top-4 right-1">
                   {userCanDelete && <CommentDelete commentId={comment.id} />}
                 </div>

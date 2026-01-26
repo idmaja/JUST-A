@@ -75,35 +75,6 @@ const ProfileForm = ({ user }) => {
         <SuccessModal message="Update username successfully!" />
       )}
 
-      {/* Modal for feedback */}
-      {/* <AnimatePresence>
-        {showModal && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
-            initial={{ opacity: 0, y: "-100%" }}
-            animate={{ opacity: 1, y: "0" }}
-            exit={{ opacity: 0, y: "100%" }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.div
-              className="max-w-sm p-8 mx-auto mt-16 bg-white rounded-lg shadow-lg md:mt-20"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h2 className="mb-4 text-xl font-semibold text-center text-gray-500">
-                {message}
-              </h2>
-              <p className="text-center text-color-secondary">
-                {message === "Profile updated successfully!" 
-                  ? "Your username has been updated." 
-                  : "Something went wrong. Please try again."}
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence> */}
     </section>
   );
 };

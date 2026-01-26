@@ -1,6 +1,6 @@
 import prisma from "@/services/prisma";
 
-// Fungsi untuk menangani DELETE request
+
 export async function DELETE(req, { params }) {
   const { id } = params; // Mengambil id dari params
 
@@ -12,14 +12,13 @@ export async function DELETE(req, { params }) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    console.error("Error deleting comment:", error);
     return new Response(JSON.stringify({ status: 500, isDeleted: false }), {
       headers: { 'Content-Type': 'application/json' },
     });
   }
 }
 
-// Fungsi untuk menangani PUT request
+
 export async function PUT(req, { params }) {
   const { id } = params; // Mengambil id dari params
   const { comment } = await req.json(); // Mengambil comment dari request body
@@ -33,14 +32,13 @@ export async function PUT(req, { params }) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    console.error("Error updating comment:", error);
     return new Response(JSON.stringify({ status: 500, isUpdated: false }), {
       headers: { 'Content-Type': 'application/json' },
     });
   }
 }
 
-// Fungsi untuk menangani method yang tidak diizinkan
+
 export async function handler(request, response) {
   const { method } = request;
 

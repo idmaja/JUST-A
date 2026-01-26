@@ -11,7 +11,7 @@ const LikeDislike = ({ commentId, initialLikes, initialDislikes, initialUserReac
   const [modalMessage, setModalMessage] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Saat komponen pertama kali dirender, ambil status reaksi pengguna
+
   useEffect(() => {
     const fetchReaction = async () => {
       try {
@@ -21,7 +21,7 @@ const LikeDislike = ({ commentId, initialLikes, initialDislikes, initialUserReac
           setUserReaction(data.reaction);
         }
       } catch (error) {
-        console.error("Gagal fetch reaction:", error);
+
       } finally {
         setLoading(false);
       }
@@ -29,7 +29,7 @@ const LikeDislike = ({ commentId, initialLikes, initialDislikes, initialUserReac
     fetchReaction();
   }, [commentId]);
 
-  // Bersihkan pesan modal setelah 3 detik
+
   useEffect(() => {
     if (modalMessage) {
       const timer = setTimeout(() => {
@@ -45,18 +45,17 @@ const LikeDislike = ({ commentId, initialLikes, initialDislikes, initialUserReac
       const response = await fetch(`/api/v1/comment/${commentId}/like`, { method: "POST" });
       const data = await response.json();
       if (response.status === 200) {
-        // Jika sebelumnya dislike, kurangi jumlah dislike
+
         if (userReaction === "DISLIKE") {
           setDislikes(dislikes - 1);
         }
         setLikes(likes + 1);
         setUserReaction("LIKE");
       }
-      // Tampilkan pesan modal (bisa "Liked successfully" atau "Already liked")
+
       setModalMessage(data.message);
     } catch (error) {
       setModalMessage("Terjadi kesalahan");
-      console.error("Error pada handleLike:", error);
     }
   };
 
@@ -72,15 +71,14 @@ const LikeDislike = ({ commentId, initialLikes, initialDislikes, initialUserReac
         setDislikes(dislikes + 1);
         setUserReaction("DISLIKE");
       }
-      // Tampilkan pesan modal (bisa "Disliked successfully" atau "Already disliked")
+
       setModalMessage(data.message);
     } catch (error) {
       setModalMessage("Terjadi kesalahan");
-      console.error("Error pada handleDislike:", error);
     }
   };
 
-  // Ubah gaya tombol berdasarkan status reaksi
+
   const likeButtonStyle = userReaction === 'LIKE' ? "text-green-400" : "text-blue-400 hover:text-blue-600";
   const dislikeButtonStyle = userReaction === 'DISLIKE' ? "text-green-400" : "text-red-400 hover:text-red-600";
 

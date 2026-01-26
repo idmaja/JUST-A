@@ -51,7 +51,7 @@ const SignOut = ({ user }) => {
       <div className="absolute inset-0 bg-black bg-opacity-20 filter backdrop-blur-md"></div>
       <div className="relative z-10 w-full max-w-sm p-6 rounded-lg shadow-xl bg-color-primary">
         <div className="flex flex-col items-center mb-6">
-          {/* <Image src="/just-a-logo.svg" alt="Logo" width={100} height={100} className="mb-4" /> */}
+          
           <Image src={user?.image} alt="Logo" width={100} height={100} className="mb-4 rounded-full" />
           <h2 className="text-2xl font-bold text-center text-color-dark">Do you want to sign out?</h2>
         </div>
@@ -66,7 +66,7 @@ const SignOut = ({ user }) => {
             Sign Out
           </motion.button>
         </div>
-        {/* <p className="mt-6 text-sm text-center text-gray-500">New here? <a href="/register" className="text-color-secondary hover:underline">Create an account</a></p> */}
+        
       </div>
     </div>
   );

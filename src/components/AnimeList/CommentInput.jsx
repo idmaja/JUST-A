@@ -35,7 +35,7 @@ const CommentInput = ({ anime_mal_id, user_email, username, anime_title }) => {
     setLoading(false);
   };
 
-  // Bersihkan notifikasi "COMMENT POSTED!" setelah 1.5 detik
+
   useEffect(() => {
     if (isCreated) {
       const timer = setTimeout(() => {

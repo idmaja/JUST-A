@@ -9,7 +9,7 @@ const AnimeSlider = ({ animeList }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedAnimeList, setDisplayedAnimeList] = useState([]);
 
-  // Fungsi untuk merandom subset anime dari list yang diberikan
+
   const getRandomSubset = (list, num) => {
     const shuffled = list
       .map((item) => ({ ...item, sort: Math.random() })) // Tambahkan properti 'sort' acak pada setiap anime
@@ -46,7 +46,7 @@ const AnimeSlider = ({ animeList }) => {
       <div className="anime-slider-inner" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
         {displayedAnimeList.map((anime) => (
           <div className="anime-slide" key={anime.mal_id}>
-            {/* Gambar diletakkan di bawah vignette */}
+            
             <Image
               src={anime.trailer?.images?.maximum_image_url || anime.images.webp.large_image_url}
               alt={anime.title}
@@ -71,7 +71,7 @@ const AnimeSlider = ({ animeList }) => {
         ))}
       </div>
 
-      {/* Pagination */}
+      
       <div className="anime-pagination">
         {displayedAnimeList.map((_, index) => (
           <span
@@ -82,7 +82,7 @@ const AnimeSlider = ({ animeList }) => {
         ))}
       </div>
 
-      {/* Navigation buttons */}
+      
       <button className="transition-all prev" onClick={handlePrevClick}>❮</button>
       <button className="transition-all next" onClick={handleNextClick}>❯</button>
     </div>

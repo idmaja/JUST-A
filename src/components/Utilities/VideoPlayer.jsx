@@ -28,7 +28,7 @@ const VideoPlayer = ({ youtubeId }) => {
     const Player = () => {
         return (
             <div className="fixed bottom-5 right-5 md:p-2 p-2 bg-color-dark shadow-xl rounded-lg md:max-w-[640px] md:max-h-[360px] w-[90%] h-[200px] sm:h-[250px] md:h-[360px]">
-                {/* Close Button */}
+                
                 <button 
                     onClick={handleVideoPlayer}
                     className="absolute z-10 p-1 text-white transition-all rounded-full shadow-lg md:p-2 -top-4 -right-4 bg-color-red hover:bg-red-700"
@@ -36,7 +36,7 @@ const VideoPlayer = ({ youtubeId }) => {
                     <X size={28} weight="bold" />
                 </button>
                 
-                {/* YouTube Video with rounded corners */}
+                
                 <div className="relative w-full h-full overflow-hidden rounded-lg">
                     <YouTube 
                         videoId={youtubeId}
@@ -51,7 +51,7 @@ const VideoPlayer = ({ youtubeId }) => {
     
     
 
-    // Button to open the video player
+
     const ButtonOpenPlayer = () => {
         return (
             <button 
@@ -64,7 +64,7 @@ const VideoPlayer = ({ youtubeId }) => {
         )
     }
 
-    // Error Modal when the video fails to load
+
     const ErrorModal = () => (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
             <div className="p-6 rounded-lg shadow-xl bg-color-primary text-color-dark">

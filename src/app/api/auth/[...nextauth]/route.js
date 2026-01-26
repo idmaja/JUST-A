@@ -23,12 +23,8 @@ export const authOption = {
             const email = user.email || profile.email;
             const username = user.name || profile.name;
             const image = user.image || profile.picture;
-            
-            // console.log('user:',user)
-            // console.log('profile',profile)
 
             try {
-                // Cek apakah user sudah ada di database
                 const existingUser = await prisma.user.findUnique({ where: { email } });
         
                 if (!existingUser) {
@@ -36,7 +32,6 @@ export const authOption = {
                         data: { email, username, image }
                     });
                 } else {
-                    // menyesuaikan jika profile picture user Google/Github berubah
                     await prisma.user.update({
                         where: { email },
                         data: { image }
@@ -45,7 +40,6 @@ export const authOption = {
         
                 return true;
             } catch (error) {
-                console.error('Error signing in:', error);
                 return false; 
             }
         },

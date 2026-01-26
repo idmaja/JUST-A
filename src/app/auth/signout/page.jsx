@@ -10,6 +10,6 @@ export default async function SignOutPage() {
       </div>
     );
   }
-  // console.log(user)
+
   return <SignOut user={user}/>
 }
